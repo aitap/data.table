@@ -62,6 +62,13 @@ jobs:
           name: atime-results
           path: .ci/atime/
 
+      - name: Debug gh auth
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh --version
+          gh auth status
+
       - name: Post or update PR comment
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
